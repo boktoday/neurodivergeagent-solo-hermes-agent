@@ -1,0 +1,29 @@
+# The Individual Agent - example Hermes configuration. No credentials included.
+# Model strategy: DeepSeek Flash via OpenRouter is the everyday default.
+# For complex jobs switch up to a frontier model on the same key; for the
+# scheduled check-ins a small local model (LM Studio / Ollama) is encouraged.
+# Full strategy and the offline story: docs/models.md.
+_config_version: 33
+model:
+  default: deepseek-v4-flash
+  provider: openrouter
+compression:
+  enabled: true
+  threshold: 0.85
+  target_ratio: 0.7
+  protect_last_n: 50
+  protect_first_n: 3
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  write_approval: true
+  memory_char_limit: 1100
+  user_char_limit: 700
+onboarding:
+  profile_build: ask
+  seen: {}
+platforms:
+  api_server:
+    enabled: false
+  telegram:
+    enabled: false

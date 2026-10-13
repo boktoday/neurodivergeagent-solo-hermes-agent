@@ -1,0 +1,22 @@
+# Hermes runtime
+.env
+.env.*
+!.env.example
+*.swp
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Personal folder (default lives in ~/myfolder anyway)
+myfolder/
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
