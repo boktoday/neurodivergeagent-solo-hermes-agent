@@ -37,7 +37,7 @@ Think of it as the support team a late-diagnosed adult never got: practical, hon
 1. **One folder.** Everything lives in `~/myfolder/` (rename it whatever you like): profile, energy log, wins, work notes. Plain files, yours.
 2. **One front door.** Compass builds your profile first: strengths, sensory world, energy patterns, what has failed before. Then it routes.
 3. **Schedules that respect energy.** Optional check-ins: morning anchors, evening shutdown, weekly review, monthly energy audit. All pausable with one sentence.
-4. **Local first.** Runs fully offline with local models. Calendar and mail connections are optional and read-first.
+4. **Local first.** Runs fully offline with local models (see `docs/local-models.md` to pick one that fits your machine). Calendar and mail connections are optional and read-first.
 5. **Hard rails.** Not therapy, not medical, legal or financial advice. Crises route to humans. See `SOUL.md`.
 
 ---
