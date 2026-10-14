@@ -48,6 +48,19 @@ See `INSTALL.md`. Short version: install Hermes, copy the skills into your profi
 
 ---
 
+## Starter artifacts
+
+One-file tools in `templates/artifacts/` that Toolsmith can hand you, tailored to your life. They run locally in any browser — no account, no cloud, no install. Full instructions live in `templates/artifacts/README.md`.
+
+| Artifact | What it is | When to use it |
+|---|---|---|
+| `day-board.html` | One-screen daily board: today's three, meds, energy meter, meals, wins, notes. Saves per day, exports CSV, prints | Daily anchoring, therapy prep, showing patterns to someone |
+| `lesson-chunks.html` | Local-first lesson planner: paste or dictate a lesson, AI breaks it into small sequential steps + an encouraging overview. Text-to-speech, mark-complete, rich-text editor per step, AI feedback, saved Q&A history | Turning courses, work training or therapy content into manageable steps; executive-function support |
+
+Quick start for either: open the file in Chrome/Edge/Firefox, use it, it saves itself. For **lesson-chunks.html**, add a free OpenRouter API key in its Settings once — that is the only internet call, and it only touches the content when you click Chunk Lesson or ask a question.
+
+---
+
 ## Licence
 
 PolyForm Noncommercial 1.0.0. Free to download, free to use for yourself, with credit. See `LICENSE`.
