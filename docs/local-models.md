@@ -38,7 +38,7 @@ All of these run in both Ollama and LM Studio. Mixture-of-experts models like `g
 
 ## Which jobs suit a local model
 
-- **Great fit:** scheduled check-ins, routine nudges, short conversations, note taking. Simple by design.
+- **Great fit, and the place to start: the repetitive work.** Cron jobs, scheduled check-ins, routine nudges, short conversations, note taking. Small, frequent and the same every day, which is exactly what a local model is for.
 - **Better on a bigger model:** complex planning, long drafting sessions, anything tangled. Reach for a frontier model occasionally and keep the rest local.
 - **The all-local setup:** a capable machine plus a good local model plus local voice (Piper and faster-whisper, see [models.md](models.md)) keeps everything on your machine, always.
 
