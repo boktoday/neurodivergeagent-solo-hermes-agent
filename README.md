@@ -8,7 +8,7 @@ A free support team for one neurodivergent adult. Built on **[Hermes Agent](http
 
 ## What this is
 
-Eleven specialist skills that work as one team around your life: a front-door Compass that knows you, an executive function coach, a sensory architect, an energy and burnout guardian, a work advocate, a money and admin ally, and more. They share one picture of you (your own folder of plain readable files), so nothing has to be explained twice.
+Twelve specialist skills that work as one team around your life: a front-door Compass that knows you, an executive function coach, a sensory architect, an energy and burnout guardian, a work advocate, a money and admin ally, and more. They share one picture of you (your own folder of plain readable files), so nothing has to be explained twice.
 
 Think of it as the support team a late-diagnosed adult never got: practical, honest about capacity, allergic to cures and toxic productivity.
 
@@ -29,6 +29,7 @@ Think of it as the support team a late-diagnosed adult never got: practical, hon
 | Connection Coach | Friendships, family, social energy, finding your people |
 | Health Appointments | Appointment prep, symptom notes, med routines |
 | Toolsmith | Local trackers, dashboards, printables, mini-apps |
+| NDIS Guide | Australian NDIS navigation from the shipped document library (for Australians) |
 
 ---
 
@@ -58,6 +59,12 @@ One-file tools in `templates/artifacts/` that Toolsmith can hand you, tailored t
 | `lesson-chunks.html` | Local-first lesson planner: paste or dictate a lesson, AI breaks it into small sequential steps + an encouraging overview. Text-to-speech, mark-complete, rich-text editor per step, AI feedback, saved Q&A history | Turning courses, work training or therapy content into manageable steps; executive-function support |
 
 Quick start for either: open the file in Chrome/Edge/Firefox, use it, it saves itself. For **lesson-chunks.html**, add a free OpenRouter API key in its Settings once — that is the only internet call, and it only touches the content when you click Chunk Lesson or ask a question.
+
+---
+
+## NDIS (for Australians)
+
+A shipped library of 59 current official NDIS documents (`shared/ndis/`): every operational guideline document, the consolidated NDIS Act 2013 (as at 1 October 2026), the (Supports for Participants) Rules, the pricing schedule 2026-27, and the 2026 law-change briefings. The **NDIS Guide** skill answers from these documents with the source and date named, never from memory. Refresh anytime with `scripts/fetch-ndis-docs.py`.
 
 ---
 

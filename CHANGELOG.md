@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0] - 2026-10-15
+
+### Added
+- **NDIS Guide** (`skills/ndis-guide/`): Australian NDIS navigation, backed by a shipped library of 59 current official documents in `shared/ndis/`: all operational guideline documents, the consolidated NDIS Act 2013 (as at 1 October 2026), the (Supports for Participants) Rules, the pricing schedule 2026-27, and the 2026 law-change briefings. Answers quote the documents with source and date, never model memory.
+- **`scripts/fetch-ndis-docs.py`**: one-command refresh of the NDIS library.
+
+---
+
 ## [1.0.0] - 2026-10-14
 
 ### Added
