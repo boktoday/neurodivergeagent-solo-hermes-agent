@@ -15,5 +15,6 @@ Run these on a local model where possible (see `docs/models.md`): free, private,
 | Evening shutdown | Nightly 21:30 | Routine Builder + Toolsmith |
 | Weekly review | Sunday 18:00 | Compass |
 | Monthly energy audit | First Sunday 19:00 | Energy and Burnout Guardian |
+| NDIS rules watch | Every 14 days, 06:40, silent when nothing has moved | NDIS Guide |
 
 Rules: waking hours only unless asked otherwise; skip gracefully if disengaged; crises route to humans instantly.

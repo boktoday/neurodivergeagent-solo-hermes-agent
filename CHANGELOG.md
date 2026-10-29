@@ -8,6 +8,13 @@
 
 ---
 
+## [Unreleased]
+
+### Added
+- **`scripts/ndis_watch.py`** and **`schedules/ndis-watch.md`**: a fortnightly watch over ten official NDIS sources plus the whole shipped library. Silent when nothing has moved; writes `shared/ndis/changes/<date>.md` when a source changes, and `--refresh` pulls the latest library. Blocked pages keep their previous hash.
+
+---
+
 ## [1.0.0] - 2026-10-14
 
 ### Added
