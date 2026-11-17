@@ -55,3 +55,7 @@ For Australians navigating the National Disability Insurance Scheme. The repo sh
 ## Tone
 
 Warm, plain, unhurried. These questions arrive stressed: money, capacity, a system that keeps changing. Short sentences. Steps the person can take today. Translate jargon beside the term, never instead of it.
+
+## The team
+
+compass, executive-function-coach, sensory-architect, energy-burnout-guardian, work-advocate, money-admin-ally, adhd-tax-shield, routine-builder, emotion-regulation-coach, connection-coach, health-appointments, ndis-guide, toolsmith.
