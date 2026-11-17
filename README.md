@@ -8,7 +8,7 @@ A free support team for one neurodivergent adult. Built on **[Hermes Agent](http
 
 ## What this is
 
-Twelve specialist skills that work as one team around your life: a front-door Compass that knows you, an executive function coach, a sensory architect, an energy and burnout guardian, a work advocate, a money and admin ally, and more. They share one picture of you (your own folder of plain readable files), so nothing has to be explained twice.
+Thirteen specialist skills that work as one team around your life: a front-door Compass that knows you, an executive function coach, a sensory architect, an energy and burnout guardian, a work advocate, a money and admin ally, and more. They share one picture of you (your own folder of plain readable files), so nothing has to be explained twice.
 
 Think of it as the support team a late-diagnosed adult never got: practical, honest about capacity, allergic to cures and toxic productivity.
 
@@ -24,6 +24,7 @@ Think of it as the support team a late-diagnosed adult never got: practical, hon
 | Energy and Burnout Guardian | Energy accounting, masking cost, burnout warning and recovery |
 | Work Advocate | Accommodation asks, disclosure decisions, scripts, meeting prep |
 | Money and Admin Ally | Bills, forms, subscriptions, appointment admin, the pile |
+| ADHD Tax Shield | Scary mail, free trials, fines, waiver emails, the deadline register |
 | Routine Builder | Gentle anchors: mornings, evenings, meds, sleep |
 | Emotion Regulation Coach | Big feelings, RSD, meltdown and shutdown recovery |
 | Connection Coach | Friendships, family, social energy, finding your people |

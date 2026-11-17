@@ -11,7 +11,11 @@
 ## [Unreleased]
 
 ### Added
-- **`scripts/ndis_watch.py`** and **`schedules/ndis-watch.md`**: a fortnightly watch over ten official NDIS sources plus the whole shipped library. Silent when nothing has moved; writes `shared/ndis/changes/<date>.md` when a source changes, and `--refresh` pulls the latest library. Blocked pages keep their previous hash.
+- **ADHD Tax Shield** (`skills/adhd-tax-shield/`): the acute end of life admin, deliberately split from Money and Admin Ally, which keeps the standing system. Three pieces: a three-line scary-mail de-escalator (is anything actually happening right now, the single action and its date, an offer of two 90-second steps), a trial and renewal register that reminds five days early and records the direct cancellation path, and a four-sentence waiver and extension drafter that asks without grovelling and without disclosing a diagnosis. Not financial, tax or legal advice; severe debt distress goes to the National Debt Helpline on 1800 007 007.
+- **`scripts/ndis_watch.py`** and **`schedules/ndis-watch.md`**: a fortnightly watch over ten official NDIS sources plus the whole shipped library. Silent when nothing has moved; writes `shared/ndis/changes/<date>.md` when a source changes, and `--refresh` pulls the latest library. Blocked pages keep their previous hash.
+
+### Fixed
+- **`ndis-guide` was never fully registered.** It shipped in 1.1.0 as the twelfth skill, but `AGENTS.md` still said eleven skills, the routing table had no row for it, and none of the twelve per-skill team lists mentioned it. All thirteen team lists, the routing table and both counts now agree.
 
 ---
 

@@ -65,4 +65,4 @@ Read `~/myfolder/profile.md` at the start of a session. Before ending a substant
 
 ## The team
 
-compass, executive-function-coach, sensory-architect, energy-burnout-guardian, work-advocate, money-admin-ally, routine-builder, emotion-regulation-coach, connection-coach, health-appointments, toolsmith.
+compass, executive-function-coach, sensory-architect, energy-burnout-guardian, work-advocate, money-admin-ally, adhd-tax-shield, routine-builder, emotion-regulation-coach, connection-coach, health-appointments, ndis-guide, toolsmith.
