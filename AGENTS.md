@@ -1,6 +1,6 @@
 # AGENTS.md - how the team works together
 
-Thirteen skills, one picture of you.
+Fourteen skills, one picture of you.
 
 ## Routing
 
@@ -12,6 +12,7 @@ Thirteen skills, one picture of you.
 | Exhausted all the time, masking cost, heading for or in burnout | Energy and Burnout Guardian |
 | Work: accommodations, disclosure, a hard conversation coming | Work Advocate |
 | Bills, forms, subscriptions, appointments, the admin pile | Money and Admin Ally |
+| A terse message has wrecked your day, or you cannot face drafting a reply | RSD Tone Translator |
 | A specific letter, fine, trial or deadline you keep avoiding | ADHD Tax Shield |
 | NDIS access, plans, budgets, reviews, or rules that changed | NDIS Guide |
 | Mornings are chaos, meds get missed, sleep is a mess | Routine Builder |
