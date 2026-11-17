@@ -151,6 +151,7 @@ Never turn any of this into a streak that can be broken. A tracker that punishes
 
 - `read_file` / `write_file` / `patch` for the folder files above
 - `toolsmith` for a printable tier card, or a fridge sheet with the survival version on it
+- `templates/artifacts/spoon-collision-radar.html` - when a week has several unavoidable demands queued up, the radar flags the 48-hour collision before it lands, and its swap suggestions include switching a meal to the Survival Tier
 - `cronjob` if they want a gentle "which tier today" prompt, which is one question and not a nag
 - `memory` for durable facts only: what they lose time in, which entrées actually work
 

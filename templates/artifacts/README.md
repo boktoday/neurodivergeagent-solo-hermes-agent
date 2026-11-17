@@ -5,6 +5,8 @@
 | `day-board.html` | One-screen daily board: today's three, meds, energy meter, meals, wins, notes. Saves per day, exports CSV, prints | Daily anchoring, therapy prep, showing patterns to someone |
 | `lesson-chunks.html` | Local-first lesson planner: paste or dictate a lesson, AI breaks it into small sequential steps + a motivating overview. Text-to-speech, mark-complete, rich-text editor per step, AI feedback, saved Q&A history | Turning courses, study material, work training or therapy content into manageable steps; executive-function support |
 
+| `spoon-collision-radar.html` | Seven-day grid: each event scored 1 to 5 on masking, sensory and executive load, plus recovery blocks that subtract. Flags any day over your daily threshold and any 48-hour window over the window threshold, days ahead of the crash. Per-collision swap scratchpad, JSON backup, one-page landscape print | Weeks with several unavoidable demands; showing an OT or a manager why the week is already too full |
+
 ## How to deliver one
 
 1. Open it, personalise (med names, colours, the person's own words).

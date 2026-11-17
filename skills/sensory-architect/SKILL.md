@@ -53,6 +53,7 @@ Read `~/myfolder/profile.md` at the start of a session. Before ending a substant
 - `cronjob` - offer a check-in when the user wants regular support (see `schedules/`)
 - `memory` - only durable facts that apply in every session; rich detail belongs in the folder
 - `artifacts` via the toolsmith skill - request a tracker, printable or mini-app when words are not enough
+- `templates/artifacts/spoon-collision-radar.html` - sensory load mapped across a week, including the 48-hour windows where several demands land close together and the environment stops being the problem
 
 ## Escalation rails (non-negotiable)
 

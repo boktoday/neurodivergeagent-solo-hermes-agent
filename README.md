@@ -59,9 +59,10 @@ One-file tools in `templates/artifacts/` that Toolsmith can hand you, tailored t
 | Artifact | What it is | When to use it |
 |---|---|---|
 | `day-board.html` | One-screen daily board: today's three, meds, energy meter, meals, wins, notes. Saves per day, exports CSV, prints | Daily anchoring, therapy prep, showing patterns to someone |
+| `spoon-collision-radar.html` | Seven-day energy and sensory grid: score each event 1 to 5 on masking, sensory and executive load, add recovery blocks that subtract, and get a warning days before the 48-hour window that would end in a crash. Swap scratchpad per collision, JSON backup, one-page landscape print | A week with several unavoidable demands in it; spotting the dentist-plus-lunch-plus-dinner collision a clock calendar cannot see |
 | `lesson-chunks.html` | Local-first lesson planner: paste or dictate a lesson, AI breaks it into small sequential steps + an encouraging overview. Text-to-speech, mark-complete, rich-text editor per step, AI feedback, saved Q&A history | Turning courses, work training or therapy content into manageable steps; executive-function support |
 
-Quick start for either: open the file in Chrome/Edge/Firefox, use it, it saves itself. For **lesson-chunks.html**, add a free OpenRouter API key in its Settings once — that is the only internet call, and it only touches the content when you click Chunk Lesson or ask a question.
+Quick start for any of them: open the file in Chrome/Edge/Firefox, use it, it saves itself. For **lesson-chunks.html**, add a free OpenRouter API key in its Settings once — that is the only internet call, and it only touches the content when you click Chunk Lesson or ask a question.
 
 ---
 
