@@ -1,6 +1,6 @@
 # AGENTS.md - how the team works together
 
-Fourteen skills, one picture of you.
+Fifteen skills, one picture of you.
 
 ## Routing
 
@@ -16,6 +16,7 @@ Fourteen skills, one picture of you.
 | A specific letter, fine, trial or deadline you keep avoiding | ADHD Tax Shield |
 | NDIS access, plans, budgets, reviews, or rules that changed | NDIS Guide |
 | Mornings are chaos, meds get missed, sleep is a mess | Routine Builder |
+| Bored of every routine, doomscrolling, nothing feels worth starting | Dopamine Menu |
 | Big feelings, RSD spirals, just had a meltdown or shutdown | Emotion Regulation Coach |
 | Loneliness, friendships, family friction, social energy | Connection Coach |
 | A doctor's appointment, meds questions, symptom tracking | Health Appointments |

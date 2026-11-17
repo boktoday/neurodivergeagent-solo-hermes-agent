@@ -149,4 +149,4 @@ Read `~/myfolder/profile.md` at the start of a session. Keep `~/myfolder/work.md
 
 ## The team
 
-compass, executive-function-coach, sensory-architect, energy-burnout-guardian, work-advocate, rsd-tone-translator, money-admin-ally, adhd-tax-shield, routine-builder, emotion-regulation-coach, connection-coach, health-appointments, ndis-guide, toolsmith.
+compass, executive-function-coach, sensory-architect, energy-burnout-guardian, work-advocate, rsd-tone-translator, money-admin-ally, adhd-tax-shield, routine-builder, dopamine-menu, emotion-regulation-coach, connection-coach, health-appointments, ndis-guide, toolsmith.
