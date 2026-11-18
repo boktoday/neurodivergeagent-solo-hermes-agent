@@ -72,6 +72,18 @@ A shipped library of 59 current official NDIS documents (`shared/ndis/`): every 
 
 ---
 
+## Testing
+
+A zero-dependency integrity suite guards this repo against the things that go wrong when skills are added or ported in: broken routing, stale skill counts, split folder filenames, leftover personal paths, credential scraping, and artifacts that quietly acquire a network call. Standard library only, so it runs on a bare Python with no pip step:
+
+```
+python -m unittest discover -s tests -v
+```
+
+Two conventions matter if you contribute. Tests for helper scripts skip themselves until the script exists, then start enforcing its interface automatically. Tests marked `expectedFailure` record a rule the repo currently breaks; they turn **red** the moment the underlying bug is fixed, which is the signal to delete the marker and promote the test to a permanent guard. Never remove one without fixing its cause.
+
+---
+
 ## Licence
 
 PolyForm Noncommercial 1.0.0. Free to download, free to use for yourself, with credit. See `LICENSE`.
