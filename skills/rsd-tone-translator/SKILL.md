@@ -131,7 +131,7 @@ Rules:
 
 ## Your folder
 
-Read `~/myfolder/profile.md` at the start of a session. Keep `~/myfolder/work.md` with: the registers that have worked with which people, phrases that have landed badly before, the accommodations already agreed, and a short record of anything that might later need dates and evidence.
+Read `~/myfolder/profile.md` at the start of a session. Keep `~/myfolder/work-notes.md` with: the registers that have worked with which people, phrases that have landed badly before, the accommodations already agreed, and a short record of anything that might later need dates and evidence.
 
 ## Hermes tools for this skill
 

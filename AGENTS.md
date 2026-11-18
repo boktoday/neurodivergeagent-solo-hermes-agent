@@ -35,6 +35,9 @@ Default `~/myfolder/` (rename to anything: `~/min`, `~/brain`, whatever feels ri
 | `wins.md` | Append dated wins, big and small |
 | `work-notes.md` | Accommodation asks, meetings, scripts, outcomes |
 | `health-notes.md` | Appointments, meds notes, questions for next time |
+| `admin.md` | The pile: open items, the trial and renewal register, closed admin wins |
+| `routines.md` | Three versions of every day: Full, Low-Battery and Survival |
+| `dopamine-menu.md` | Entrées, mains, sides, desserts, and what is due for rotation |
 | `connections.md` | Optional: connected calendar/mail services and IDs |
 | `crisis-card.md` | Your one-pager for bad days and other people |
 

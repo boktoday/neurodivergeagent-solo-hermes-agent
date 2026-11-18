@@ -253,34 +253,88 @@ class FolderTests(unittest.TestCase):
                 "setup overwrote an existing file, destroying user data",
             )
 
-    @unittest.expectedFailure
     def test_no_stale_work_or_health_filenames(self):
-        """DEBT: twelve skills' footers say work.md / health.md.
+        """The short forms work.md and health.md must never come back.
 
-        Templates ship as work-notes.md and health-notes.md, so the agent writes
-        to files that setup never creates and the folder silently splits.
-        Review Task 2 pays this.
+        Templates ship as work-notes.md and health-notes.md. A skill that names
+        the short form writes to a file setup never creates, so the folder
+        silently splits: the user writes to one file and the agent reads another.
         """
         offenders = {}
-        for path in list(SKILLS.rglob("*.md")) + list(SCHEDULES.rglob("*.md")):
+        paths = list(SKILLS.rglob("*.md")) + list(SCHEDULES.rglob("*.md"))
+        if (REPO / "docs").is_dir():
+            paths += list((REPO / "docs").rglob("*.md"))
+        paths += [REPO / name for name in ("AGENTS.md", "README.md", "INSTALL.md")]
+        for path in paths:
+            if not path.is_file():
+                continue
             text = path.read_text(encoding="utf-8", errors="replace")
             hits = re.findall(r"(?<![\w-])(work|health)\.md\b", text)
             if hits:
                 offenders[path.relative_to(REPO).as_posix()] = sorted(set(hits))
         self.assertEqual({}, offenders, "stale folder filenames: %s" % offenders)
 
-    @unittest.expectedFailure
     def test_every_referenced_folder_file_has_a_template(self):
-        """DEBT: admin.md, dopamine-menu.md and routines.md are read and written
-        by the newer skills but have no template and no setup entry. Review Task 2.
+        """Every folder file a skill names must actually be created by setup.
+
+        Otherwise the agent writes to a path that does not exist, and the user's
+        notes vanish from the agent's view without any error being raised.
         """
         have = {p.name.replace(".template.md", ".md") for p in SHARED.glob("*.template.md")}
         referenced = set()
-        for path in SKILLS.rglob("*.md"):
+        for path in list(SKILLS.rglob("*.md")) + [REPO / "AGENTS.md"]:
             text = path.read_text(encoding="utf-8", errors="replace")
             referenced.update(re.findall(r"myfolder/([a-z0-9-]+\.md)", text))
         missing = sorted(referenced - have)
         self.assertEqual([], missing, "referenced but never initialised: %s" % missing)
+
+    def test_no_ghost_folder_filenames(self):
+        """Every bare .md filename a skill names must resolve to a real file.
+
+        This is the generic form of the work.md bug: a skill that names a file
+        nobody creates sends the agent to write somewhere the user never looks,
+        and neither side raises an error. Bare names only; path-qualified
+        references are covered by the template test above.
+        """
+        known = {p.name for p in SHARED.glob("*.template.md")}
+        known |= {name.replace(".template.md", ".md") for name in known}
+        ndis_docs = REPO / "shared" / "ndis" / "docs"
+        if ndis_docs.is_dir():
+            known |= {p.name for p in ndis_docs.glob("*.md")}
+        known |= {
+            "SKILL.md", "README.md", "CHANGELOG.md", "INSTALL.md",
+            "AGENTS.md", "SOUL.md", "ROADMAP.md", "LICENSE.md",
+        }
+        ghosts = {}
+        for path in list(SKILLS.rglob("*.md")) + list(SCHEDULES.rglob("*.md")):
+            text = path.read_text(encoding="utf-8", errors="replace")
+            named = set(re.findall(r"(?<![\w/.-])([a-z0-9-]+\.md)\b", text))
+            unknown = sorted(name for name in named if name not in known)
+            if unknown:
+                ghosts[path.relative_to(REPO).as_posix()] = unknown
+        self.assertEqual({}, ghosts, "skills naming files that do not exist: %s" % ghosts)
+
+    def test_folder_templates_keep_their_sections(self):
+        """A template that has lost its structure is worse than none at all.
+
+        Checking for markers, not byte counts: length measures nothing useful.
+        """
+        expectations = {
+            "admin.template.md": ("Open items", "Trial and renewal register", "Closed admin wins"),
+            "dopamine-menu.template.md": ("Entrées", "Mains", "Sides", "Desserts"),
+            "routines.template.md": ("\U0001F7E2", "\U0001F7E1", "\U0001F534"),
+        }
+        broken = {}
+        for name, markers in expectations.items():
+            path = SHARED / name
+            if not path.is_file():
+                broken[name] = ["file missing"]
+                continue
+            text = path.read_text(encoding="utf-8", errors="replace")
+            absent = [marker for marker in markers if marker not in text]
+            if absent:
+                broken[name] = absent
+        self.assertEqual({}, broken, "templates missing their sections: %s" % broken)
 
 
 class DriftTests(unittest.TestCase):
