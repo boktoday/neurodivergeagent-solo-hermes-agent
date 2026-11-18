@@ -31,6 +31,7 @@ For Australians navigating the National Disability Insurance Scheme, as a partic
 3. Add the currency line: "scheme rules have changed through 2026; confirm the current position at ndis.gov.au before acting".
 4. If the library does not cover it, say so plainly and point to: ndis.gov.au, the National Contact Centre on 1800 800 110, or an NDIS partner (early childhood partners, if you are supporting a child under 9).
 5. For prices or budgets: quote the pricing schedule 2026-27, and note maximum prices apply to NDIA-managed and plan-managed funding; self-managed participants pay market rates.
+6. Before a plan, letter or report is pasted into a hosted model, offer to run `python scripts/redact_doc.py` on it first. It strips names, addresses and reference numbers locally and keeps the substance, which is what the question needs anyway.
 
 ## Quick map
 

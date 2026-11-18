@@ -20,3 +20,7 @@ myfolder/
 
 # Logs
 *.log
+
+# Local CI simulation (the workflow builds these in the runner workspace)
+ci-profiles/
+ci-folder/

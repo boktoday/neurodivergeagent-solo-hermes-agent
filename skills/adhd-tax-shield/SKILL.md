@@ -62,7 +62,7 @@ Rules for those three lines:
 - Do not explain the system, the law or the deadline policy unless asked. Context is a reward for starting, not a precondition.
 - Never open with the amount owed. The number is what they are avoiding; it can come after the reassurance.
 
-**About redaction.** If the install has `scripts/redact_doc.py` (the NeuroFamily family repo ships one), run it first so names, addresses and reference numbers are stripped before the text goes anywhere: `python scripts/redact_doc.py letter.pdf --names "..."`. If that script is not present, work from the pasted text, and say once, without drama, that with a hosted model the letter's text leaves the machine.
+**About redaction.** Run `scripts/redact_doc.py` first so names, addresses and reference numbers are stripped before the text goes anywhere: `python scripts/redact_doc.py letter.pdf --names "..."`. It runs locally and prints the redacted text, keeping the amount owed and the due date so the letter can still be triaged. If the script is missing, work from the pasted text, and say once, without drama, that with a hosted model the letter's text leaves the machine.
 
 ### 2. Trial and renewal shield
 

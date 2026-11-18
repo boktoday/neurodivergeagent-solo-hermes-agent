@@ -1,0 +1,49 @@
+name: integrity
+
+# The integrity suite only guards anything if it actually runs. Without this,
+# every check in tests/test_repo_integrity.py is a document nobody executes.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: suite (python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install the agent into a throwaway profile
+        # Also the only place the non-Windows branch of install.py ever runs:
+        # the maintainer's machine is Windows, so this path is untested locally.
+        run: |
+          python scripts/install.py --profiles-dir ./ci-profiles --folder ./ci-folder
+          test -f ./ci-folder/profile.md
+          test -f ./ci-profiles/me/SOUL.md
+          test -f ./ci-profiles/me/config.yaml
+          test "$(ls -1 ./ci-folder/*.md | wc -l)" -eq 10
+          test "$(ls -1d ./ci-profiles/me/skills/*/ | wc -l)" -eq 15
+
+      - name: Redaction keeps the bill and drops the person
+        run: |
+          printf 'Dear Brendan O'"'"'Keefe,\nPhone: 0412 345 678\nAmount: $148.00\nDue: 14 December 2026.\n' \
+            | python scripts/redact_doc.py - --names "Brendan O'Keefe" > out.txt
+          ! grep -q "0412 345 678" out.txt
+          ! grep -qi "o'keefe" out.txt
+          grep -q '\$148.00' out.txt
+          grep -q "14 December 2026" out.txt
+
+      - name: Repo integrity suite
+        run: python -m unittest discover -s tests -v

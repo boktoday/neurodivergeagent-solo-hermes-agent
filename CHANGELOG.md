@@ -1,14 +1,6 @@
 # Changelog
 
-## [1.1.0] - 2026-10-15
-
-### Added
-- **NDIS Guide** (`skills/ndis-guide/`): Australian NDIS navigation, backed by a shipped library of 59 current official documents in `shared/ndis/`: all operational guideline documents, the consolidated NDIS Act 2013 (as at 1 October 2026), the (Supports for Participants) Rules, the pricing schedule 2026-27, and the 2026 law-change briefings. Answers quote the documents with source and date, never model memory.
-- **`scripts/fetch-ndis-docs.py`**: one-command refresh of the NDIS library.
-
----
-
-## [Unreleased]
+## [1.2.0] - 2026-11-18
 
 ### Added
 - **ADHD Tax Shield** (`skills/adhd-tax-shield/`): the acute end of life admin, deliberately split from Money and Admin Ally, which keeps the standing system. Three pieces: a three-line scary-mail de-escalator (is anything actually happening right now, the single action and its date, an offer of two 90-second steps), a trial and renewal register that reminds five days early and records the direct cancellation path, and a four-sentence waiver and extension drafter that asks without grovelling and without disclosing a diagnosis. Not financial, tax or legal advice; severe debt distress goes to the National Debt Helpline on 1800 007 007.
@@ -22,6 +14,8 @@
 - **`requirements-ndis.txt`**: the three optional packages needed only to re-scrape the NDIS library, with a comment making clear that installing and using the agent needs no third-party packages at all.
 - **`tests/test_repo_integrity.py`**: a zero-dependency `unittest` suite guarding the things that rot when skills are added or ported. It checks that every skill is routed and self-describing, that the folder filenames stay canonical, that no personal path or credential handling creeps back in, that artifacts stay offline and printable, and that every shipped script still compiles. Tests for helper scripts skip until the script exists, then enforce its interface. Known-open debts are marked `expectedFailure`, which turns **red** when the debt is paid, so the marker cannot rot silently.
 - **Three folder templates**, bringing the folder to ten files: `shared/admin.template.md` (open items with a next-tiny-step column, a trial and renewal register that reminds five days early and keeps the cancellation path in the row, and closed admin wins), `shared/routines.template.md` (the three day tiers agreed in advance, with blocks for morning, meds, meals and evening shutdown), and `shared/dopamine-menu.template.md` (entrées, mains, sides and desserts with an exit ramp, plus rotation notes). Skills had been reading and writing all three of these files since 1.1.0, and setup created none of them.
+- **`scripts/redact_doc.py`**: strips names, addresses, phone numbers, emails, TFNs, NDIS and Medicare numbers, CRNs, BSB and account numbers and card numbers out of a letter, plan or statement before it goes near a hosted model. Standard library only for text, Markdown, HTML, CSV and DOCX; PDF needs `pypdf` or `pdftotext`, and the script says so and stops rather than pretending it read a file it could not. The redacted text goes to stdout and the counts to stderr, so the terminal scrollback never holds a value. Dates and dollar amounts are preserved on purpose: a bill you cannot triage is useless, and the deadline and the amount are the two things worth reading. It refuses to write over the input file. `adhd-tax-shield` and `ndis-guide` now point at it, which closes the last reference to a script this repo did not ship.
+- **`.github/workflows/integrity.yml`**: the integrity suite now runs on every push and pull request, on Python 3.10 and 3.12. Without it the guards only ran when somebody remembered. CI also installs the agent into a throwaway profile, which is the only place the non-Windows branch of `install.py` ever executes.
 
 ### Fixed
 - **`ndis-guide` was never fully registered.** It shipped in 1.1.0 as the twelfth skill, but `AGENTS.md` still said eleven skills, the routing table had no row for it, and none of the twelve per-skill team lists mentioned it. All thirteen team lists, the routing table and both counts now agree.
@@ -33,6 +27,14 @@
 - **`docs/connections.md` and `docs/models.md` still addressed parents.** Both were ported from the family repo without being adapted. `connections.md` talked about the family calendar and the school mailbox, named four skills that do not exist here as routing targets, and sent connection notes to `~/neurofamily/`; it is now written for one adult, with this repo's actual skills in the table and the classroom row gone. `models.md` promised voice for "hands-full parents" and a "weekly family check-in". Grammar bugs fixed on the way: "tools you already uses", "whichever you already lives in", "what you explicitly chooses to share".
 - **`ndis-guide` was framed for families and carried no standard metadata.** It described law changes as something that matters "for a family" and listed early-childhood support as though the reader were a parent; it now addresses you as a participant or applicant, with nominee, child-representative and early-childhood rows kept as secondary reference for when you are supporting someone. It also gained the `author`, `license`, `platforms` and `metadata.hermes` keys every other skill already had.
 - **`ROADMAP.md` showed no current state.** Its only skill count was the v1.0.0 record. That history is accurate and was left intact; a Current section now states the present position. The integrity suite checks for a current count rather than forbidding the word "eleven", because rewriting a release record to satisfy a grep would be a false record.
+
+---
+
+## [1.1.0] - 2026-10-15
+
+### Added
+- **NDIS Guide** (`skills/ndis-guide/`): Australian NDIS navigation, backed by a shipped library of 59 current official documents in `shared/ndis/`: all operational guideline documents, the consolidated NDIS Act 2013 (as at 1 October 2026), the (Supports for Participants) Rules, the pricing schedule 2026-27, and the 2026 law-change briefings. Answers quote the documents with source and date, never model memory.
+- **`scripts/fetch-ndis-docs.py`**: one-command refresh of the NDIS library.
 
 ---
 
