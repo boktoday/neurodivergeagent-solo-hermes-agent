@@ -5,7 +5,11 @@
 # Full strategy and the offline story: docs/models.md.
 _config_version: 33
 model:
-  default: deepseek-v4-flash
+  # OpenRouter model IDs are vendor-prefixed: deepseek/deepseek-v4-flash, not
+  # deepseek-v4-flash. A bare model name fails at request time, so keep the
+  # vendor prefix. Swap the slug to change models; ':nitro' or ':free' variants
+  # also work (for example deepseek/deepseek-v4-flash:nitro).
+  default: deepseek/deepseek-v4-flash
   provider: openrouter
 compression:
   enabled: true

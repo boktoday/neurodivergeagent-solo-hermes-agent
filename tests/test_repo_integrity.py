@@ -317,11 +317,12 @@ class DriftTests(unittest.TestCase):
                 offenders[rel] = hits
         self.assertEqual({}, offenders, "family-repo leftovers: %s" % offenders)
 
-    @unittest.expectedFailure
     def test_no_hardcoded_machine_paths(self):
-        """DEBT: fetch-ndis-pages.py hardcodes C:/Users/insig/... for Playwright.
+        """No absolute home directory from a maintainer's machine may be committed.
 
-        Anyone else's machine fails to launch Chromium. Review Task 4 pays this.
+        Someone else's machine must never be assumed. Browser caches, temp dirs
+        and tool installs all resolve differently per user, so scripts ask the
+        environment or use a documented default instead of guessing a path.
         """
         pattern = re.compile(r"[A-Za-z]:[/\\]Users[/\\]([A-Za-z0-9._-]+)[/\\]")
         offenders = {}
@@ -331,13 +332,12 @@ class DriftTests(unittest.TestCase):
                     offenders.setdefault(rel, []).append(match.group(0))
         self.assertEqual({}, offenders, "hardcoded home paths: %s" % offenders)
 
-    @unittest.expectedFailure
     def test_no_credential_scraping_in_scripts(self):
-        """DEBT: ndis_watch_cron.sh greps ~/.git-credentials and passes the token
-        on the git push command line, exposing it in `ps` and in error output.
+        """No script may read a credential store or put a secret on a command line.
 
-        Review Task 4 pays this. Correct approach is a credential helper or
-        `gh auth setup-git`, never a token in argv.
+        Command-line arguments are visible to other processes and land in error
+        output and logs. Credentials belong to the credential helper, `gh
+        auth setup-git`, an SSH key or the OS keychain, never to argv.
         """
         offenders = {}
         for rel in tracked_files({".sh", ".py", ".ps1"}):
@@ -421,6 +421,54 @@ class CliSmokeTests(unittest.TestCase):
             installed = list((profiles / "me" / "skills").iterdir())
             self.assertEqual(len(skill_slugs()), len(installed), "installer dropped skills")
             self.assertTrue((folder / "profile.md").exists(), "folder was not initialised")
+
+    @unittest.skipUnless((SCRIPTS / "install.py").is_file(), "scripts/install.py not built yet")
+    def test_install_copies_the_agent_identity_files(self):
+        """Skills without SOUL.md is an agent with no behavioural rules.
+
+        A Hermes profile needs the standards, the routing table and the identity
+        alongside the skills, or the instalment is quietly worse than useless.
+        """
+        with tempfile.TemporaryDirectory() as tmp:
+            profiles = pathlib.Path(tmp) / "profiles"
+            result = run_script(
+                "install.py",
+                "--profiles-dir", str(profiles),
+                "--profile", "me",
+                "--folder", str(pathlib.Path(tmp) / "myfolder"),
+            )
+            self.assertEqual(0, result.returncode, "install failed: %s" % result.stderr)
+            missing = [
+                name
+                for name in ("SOUL.md", "AGENTS.md", "profile.yaml", "config.yaml")
+                if not (profiles / "me" / name).is_file()
+            ]
+            self.assertEqual([], missing, "installer did not place: %s" % missing)
+
+    @unittest.skipUnless((SCRIPTS / "install.py").is_file(), "scripts/install.py not built yet")
+    def test_install_never_clobbers_user_edits(self):
+        """An update must not destroy a folder entry or a tuned config."""
+        with tempfile.TemporaryDirectory() as tmp:
+            tmpdir = pathlib.Path(tmp)
+            profiles = tmpdir / "profiles"
+            folder = tmpdir / "myfolder"
+            args = ("--profiles-dir", str(profiles), "--profile", "me", "--folder", str(folder))
+            self.assertEqual(0, run_script("install.py", *args).returncode)
+
+            (folder / "wins.md").write_text("a win I wrote", encoding="utf-8")
+            (profiles / "me" / "config.yaml").write_text("my model config", encoding="utf-8")
+            self.assertEqual(0, run_script("install.py", *args).returncode)
+
+            self.assertEqual(
+                "a win I wrote",
+                (folder / "wins.md").read_text(encoding="utf-8"),
+                "re-install overwrote the user's folder notes",
+            )
+            self.assertEqual(
+                "my model config",
+                (profiles / "me" / "config.yaml").read_text(encoding="utf-8"),
+                "re-install overwrote the user's config",
+            )
 
     # --- capacity_mode.py (review Task 6) ------------------------------
     @unittest.skipUnless((SCRIPTS / "capacity_mode.py").is_file(), "scripts/capacity_mode.py not built yet")

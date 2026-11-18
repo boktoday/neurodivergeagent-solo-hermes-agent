@@ -15,19 +15,23 @@
 
 2. **Install Hermes** following the official quick start until `hermes --version` works.
 
-3. **Create a profile and copy in the skills.**
+3. **Run the installer.**
+   ```
+   cd neurodivergeagent-solo-hermes-agent
+   python scripts/install.py
+   ```
+   That copies every skill into your Hermes profile and builds your personal folder in one step. It prints the exact paths it used. Useful flags: `--profile <name>` if you do not want the default `me`, `--folder <path>` if `~/myfolder` is not where you want it, `--dry-run` to see the plan first, and `--force-config` if you want the example `config.yaml` to replace one you already have.
+
+   Prefer to do it by hand? The equivalent is:
    ```
    hermes profile create me
-   cp -r ndagent-solo-hermes-agent/skills/* <profiles-dir>/me/skills/
-   cp ndagent-solo-hermes-agent/config.yaml <profiles-dir>/me/config.yaml   # optional example
+   cp -r skills/* <profiles-dir>/me/skills/
+   cp config.yaml <profiles-dir>/me/config.yaml   # optional example
+   python scripts/setup-my-folder.py
    ```
-   `<profiles-dir>` is your Hermes profiles directory (Windows: `%LOCALAPPDATA%\hermes\profiles\`).
+   `<profiles-dir>` is your Hermes profiles directory (Windows: `%LOCALAPPDATA%\hermes\profiles\`, Linux and macOS: `~/.local/share/hermes/profiles/`).
 
-4. **Set up your folder.**
-   ```
-   python ndagent-solo-hermes-agent/scripts/setup-my-folder.py
-   ```
-   This creates `~/myfolder/` with the templates. Rename or add `--target` if you prefer another spot.
+4. **Check your folder.** `python scripts/setup-my-folder.py` creates `~/myfolder/` with the templates. It is safe to run twice: it never overwrites a file you have written in. Pass `--target` for a different spot.
 
 5. **Add a model.** Copy `.env.example` to `.env` and set `OPENROUTER_API_KEY` (free and cheap models available), or point at local models (LM Studio / Ollama; see `docs/models.md`).
 
@@ -47,4 +51,4 @@ Four optional check-ins in `schedules/`: morning anchors, evening shutdown, week
 
 ## Updating
 
-`git pull` and re-copy `skills/`. `CHANGELOG.md` tracks what changed.
+`git pull`, then re-run `python scripts/install.py` to refresh the skills in your profile. Your folder and your config are left untouched. `CHANGELOG.md` tracks what changed.

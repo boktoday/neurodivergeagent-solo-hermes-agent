@@ -23,15 +23,20 @@ echo
 
 if [ -n "$(git status --porcelain)" ]; then
   git add -A
-  git -c user.name="NeuroFamily NDIS watch" -c user.email="boktoday@gmail.com" \
+  git -c user.name="${GIT_AUTHOR_NAME:-Individual Agent NDIS Watch}" \
+      -c user.email="${GIT_AUTHOR_EMAIL:-noreply@localhost}" \
       commit -q -m "NDIS watch: refresh library $(date +%F)"
-  TOK=$(grep -o 'gh[pousr]_[A-Za-z0-9_]*' "$HOME/.git-credentials" 2>/dev/null | head -1)
-  SLUG=$(git config --get remote.origin.url | sed -E 's#.*github\.com[:/]([^/]+/[^/.]+)(\.git)?#\1#')
-  if [ -n "$TOK" ] && [ -n "$SLUG" ]; then
-    GIT_TERMINAL_PROMPT=0 git -c credential.helper= \
-      push "https://x-access-token:$TOK@github.com/$SLUG.git" HEAD:main \
-      && echo "pushed to $SLUG"
+
+  # Push with your normal Git credentials: a credential helper, `gh auth setup-git`,
+  # an SSH key, or your OS credential manager. Never pass a secret on the command
+  # line -- arguments are visible to other processes and leak into error output.
+  REMOTE=$(git config --get remote.origin.url || true)
+  if [ -z "$REMOTE" ]; then
+    echo "no git remote configured: commit made locally, push skipped"
+  elif GIT_TERMINAL_PROMPT=0 git push origin HEAD:main 2>/dev/null; then
+    echo "pushed to $REMOTE"
   else
-    echo "no token or remote found: commit made locally, push skipped"
+    echo "commit made locally; push skipped."
+    echo "Set up push credentials once with: gh auth setup-git   (or add an SSH key), then re-run."
   fi
 fi

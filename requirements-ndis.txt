@@ -1,0 +1,17 @@
+# Optional dependencies for refreshing the shipped NDIS document library.
+#
+# Nothing in this file is needed to install or use the agent. The skills, the
+# folder setup script, the installer and every browser artifact run on a bare
+# Python 3 standard library install with no packages at all.
+#
+# You only need these if you want to re-scrape the official NDIS sources with
+#   python scripts/fetch-ndis-docs.py
+#   python scripts/fetch-ndis-pages.py
+#   python scripts/ndis_watch.py
+#
+#   pip install -r requirements-ndis.txt
+#   playwright install chromium      # only for fetch-ndis-pages.py
+
+requests>=2.31.0
+pymupdf>=1.24.0
+playwright>=1.47.0

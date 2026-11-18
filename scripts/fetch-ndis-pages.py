@@ -18,11 +18,13 @@ Safety rules, learned the hard way:
   reported and left alone.
 - Nothing is fetched twice in one run, and the script exits 0 so a cron wrapper can stay quiet.
 
-Needs playwright (the Hermes runtime already has it) and a browser in PLAYWRIGHT_BROWSERS_PATH.
+Needs playwright and a browser. Run `playwright install chromium` once, or set
+PLAYWRIGHT_BROWSERS_PATH yourself if your browsers live somewhere unusual. The
+script deliberately does not guess a path: a hardcoded home directory works on
+exactly one machine and fails silently everywhere else.
 """
 import argparse
 import datetime
-import os
 import pathlib
 import re
 import sys
@@ -101,7 +103,6 @@ def main():
     ap.add_argument('--write', action='store_true', help='overwrite pages that pass the safety rules')
     a = ap.parse_args()
 
-    os.environ.setdefault('PLAYWRIGHT_BROWSERS_PATH', 'C:/Users/insig/AppData/Local/ms-playwright')
     from playwright.sync_api import sync_playwright
 
     rows = []
