@@ -14,7 +14,7 @@ Not sure what your machine can run? [local-models.md](local-models.md) has a tie
 
 ## Running the schedules on a local model
 
-The scheduled check-ins (daily anchors, weekly family check-in, and so on) are deliberately formulaic: read your folder, write a short warm message. They are the perfect fit for a small local model.
+The scheduled check-ins (morning anchors, evening shutdown, the weekly review, and so on) are deliberately formulaic: read your folder, write a short warm message. They are the perfect fit for a small local model.
 
 - In Hermes, a cron job can carry its own model and provider. When a schedule is set up, pin it to the local model and leave conversations on the default.
 - The agent can do this when creating the job, or you can ask: "run the weekly check-in on the local model".
@@ -22,9 +22,9 @@ The scheduled check-ins (daily anchors, weekly family check-in, and so on) are d
 
 ## Voice: local, in both directions
 
-Voice matters for hands-full parents. Both directions can run entirely on your machine:
+Voice matters for the days when typing is too much. Both directions can run entirely on your machine:
 
-- **Listening (STT):** local `faster-whisper` transcribes incoming voice notes. A parent can send a rambling voice note at 7am; the team reads it faithfully.
+- **Listening (STT):** local `faster-whisper` transcribes incoming voice notes. You can send a rambling voice note at 7am before you are properly awake; the team reads it faithfully.
 - **Speaking (TTS):** local **Piper** (`pip install piper-tts`) renders spoken replies. Piper is free, private, runs on modest hardware, and Hermes can attach the audio straight into the chat: WhatsApp voice bubbles, Telegram audio, wherever you live.
 - **Fully offline voice:** Piper plus faster-whisper plus a local model means the whole loop (hear, think, speak) can happen with no internet at all.
 
@@ -39,4 +39,4 @@ Setup pointers: enable voice in the profile's platform config and Hermes picks t
 
 ## Privacy line
 
-Local model plus local voice plus no external connections means nothing about you leaves the machine except what you explicitly chooses to share. That is a legitimate, fully supported way to run the whole ecosystem.
+Local model plus local voice plus no external connections means nothing about you leaves the machine except what you explicitly choose to share. That is a legitimate, fully supported way to run the whole ecosystem.

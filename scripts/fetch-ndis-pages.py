@@ -67,9 +67,9 @@ PAGES = [
     ('ndis-supports-lists', 'Supports lists', 'https://www.ndis.gov.au/oldsupports-funded-ndis'),
 ]
 
-HEADER = ('# {title}\n\n> Source: {url}  \n> Fetched {today} by the NeuroFamily agent project. '
+HEADER = ('# {title}\n\n> Source: {url}  \n> Fetched {today} by the Individual Agent (NeuroDivergeAgent). '
           '\u00a9 National Disability Insurance Agency (NDIA), or the Commonwealth of Australia, as marked at the source. '
-          'Text reproduced for noncommercial family support use only. Always verify current rules at ndis.gov.au.\n\n')
+          'Text reproduced for personal noncommercial support use only. Always verify current rules at ndis.gov.au.\n\n')
 
 EXTRACT = """() => {
   const drop = ['header','nav','footer','script','style','noscript','form'];

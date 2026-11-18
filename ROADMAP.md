@@ -1,5 +1,9 @@
 # Roadmap
 
+## Current
+
+Fifteen skills, a ten-file folder, three browser artifacts, five schedules, a one-command installer and an integrity test suite. `README.md` lists the team; `CHANGELOG.md` records what changed and when.
+
 ## Shipped (v1.0.0, October 2026)
 
 - Eleven skills, shared folder, four schedules, day-board artifact, connections and models docs.
